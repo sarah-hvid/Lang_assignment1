@@ -62,7 +62,7 @@ def preprocess_data(text_input):
     '''
     # lowercasing the text and removing puncts. 
     text_lower = text_input.lower() 
-    text_no_punct = re.sub('\W+',' ', text_lower)
+    text_no_punct = re.sub('\W+','', text_lower)
     
     # creating doc for tokenization
     doc = nlp(text_no_punct, disable=["tok2vec", "tagger", "parser", "lemmatizer", "NER"]) 

@@ -39,22 +39,37 @@ python src/collocation.py -f data -st love -wi 5 -o gathered
 Examples of the outputs of the script can be found in the ```output``` folder. 
 
 ## Results
-The results of the script are as expected. The CSV files are created as they should. As this script does not attempt to analyse any particular data but rather functions on any _'random'_ data, there are no results to discuss per se. However, it could be noted that this script does not take low frequencies (1-3 tokens) of collocate words into account. The MI score for these collocates are therefore weird and should maybe be filtered out if the scores should be used for further analysis.\
-The output CSV files:\
+The results of the script are as expected. The CSV files are created as they should. As this script does not attempt to analyse any particular data but rather functions on any _'random'_ data, there are no results to discuss per se. However, it could be noted that this script does not take low frequencies (1-3 tokens) of collocate words into account. The MI score for these collocates are therefore weird and should maybe be filtered out if the scores should be used for further analysis. Another point here might be the presence of stopwords as collocates. These are rarely informative as context words and could also be removed after the analysis.\
 \
-[**CSV file**](/output/network_H8.csv)
+The output CSV for a single file:\
+\
+[**CSV file**](/output/MI_Barclay_Ladies_1917_red.csv)
 
-| Name  | Degree | Eigenvector  | Betweenness |
-| ------------- | ------------- | ------------- | ------------- |
-| Buckingham  | 9  | 0.12232958324001253  | 0.2264562834249246  |
-| Norfolk  | 11  | 0.300241533764166  | 0.15881797902703826 |
-| Abergavenny  | 3  | 0.05305190189311667  | 0.009290264516745358 |
-| ...  | ...  | ...  | ... |
+| file_name	| key_word	| window	| collocate_term |	collocate_frequency	| text_frequency	| MI_score |
+| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
+| Barclay_Ladies_1917	| red	 | 5	 | bloomed	| 2	| 1	| 9.893733236193917 |
+| Barclay_Ladies_1917	| red	 | 5	 | drooped	| 1	| 1	| 8.893733236193917 |
+| Barclay_Ladies_1917	| red	 | 5	 | floated |	1 |	1	| 8.893733236193917 |
+| ...  | ...  | ...  | ... | ...  | ...  | ... |
 
+The output CSV for multiple files when gathered:\
+\
+[**CSV file**](/output/MI_all_jealous.csv)
+
+| file_name	| key_word	| window	| collocate_term |	collocate_frequency	| text_frequency	| MI_score |
+| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
+| Bennet_Helen_1910 |	jealous |	5	 | lilian	| 1	| 31	| 4.633715117394616 |
+| Bennet_Helen_1910 |	jealous |	5	 | 	should  |	1 |	54 |	3.833023925618023 |
+| Bennet_Helen_1910 |	jealous |	5	 | imagine	| 1	| 15	| 5.681020832172973 |
+| ...  | ...  | ...  | ... | ...  | ...  | ... |
+| Woolf_Years_1937 |	jealous |	5 |	face |	1 |	127 |	4.104402703672052 |
+| Woolf_Years_1937 |	jealous |	5 |	he |	7 |	2869 |	2.414110059733157 |
+| Woolf_Years_1937 |	jealous |	5 |	was |	5 |	2729 |	2.000858806057439 |
+| ...  | ...  | ...  | ... | ...  | ...  | ... |
 
 ## References
 
-Computational Stylistics Group. (2017). 100 English Novels (1.4) [Computer software]. https://github.com/computationalstylistics/100_english_novels (Original work published 2017)
+Computational Stylistics Group. (Aug, 2017). 100 English Novels (1.4) [Computer software]. Retrieved May 24, 2022, from https://github.com/computationalstylistics/100_english_novels 
 
 Davies, M. (n.d.). Mutual information. English Corpora. Retrieved May 24, 2022, from https://www.english-corpora.org/mutualInformation.asp
 
